@@ -13,7 +13,7 @@ const Header = () => {
   const [value, onChangeText] = React.useState('Search Product');
   return (
     <>
-      <View style={{flex: 1, justifyContent: 'center', padding: 25}}>
+      <View style={{flex: 1, justifyContent: 'center', padding: 25, backgroundColor: '#44A72C'}}>
         <View
           style={{
             flexDirection: 'row',

@@ -1,12 +1,16 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Button} from 'react-native';
 
-const Home = () => {
+const Home = (navigation) => {
   return (
-    <View>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
+      <Button
+        onPress={() => navigation.navigate('Categories')}
+        title="Categoris"
+      />
     </View>
   );
 };
