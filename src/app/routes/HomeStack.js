@@ -17,11 +17,11 @@ import Cart from '../components/Screens/Cart';
 //icon
 import Menu from '../assets/menu.svg';
 import Profile from '../assets/profile.svg';
-// import HomeIcon from '../assets/home.svg';
-// import CategorisIcon from '../assets/categoris.svg';
-// import SearchIcon from '../assets/search.svg';
-// import MyListIcon from '../assets/mylist.svg';
-// import CartIcon from '../assets/cart.svg';
+import HomeIcon from '../assets/home.svg';
+import CategorisIcon from '../assets/categoris.svg';
+import SearchIcon from '../assets/searchicon.svg';
+import MyListIcon from '../assets/mylist.svg';
+import CartIcon from '../assets/carticon.svg';
 import Logo from '../assets/logo.svg';
 
 const HomeStack = createStackNavigator();
@@ -79,7 +79,6 @@ function HomeStackScreen({navigation}) {
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
-            height: 80,
           },
           headerTitle: (props) => <LogoTitle {...props} />,
           // header: (props) => <HeaderBar {...props} />,
@@ -214,11 +213,80 @@ export default function App() {
         activeTintColor: '#44A72C',
         inactiveTintColor: '#000000',
       }}>
-      <Tab.Screen name="Home" component={HomeStackScreen} options={{}} />
-      <Tab.Screen name="Categoris" component={CategorisStackScreen} />
-      <Tab.Screen name="Search" component={SearchStackScreen} />
-      <Tab.Screen name="MyList" component={MyListStackScreen} />
-      <Tab.Screen name="Cart" component={CartStackScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{
+          title: 'Home',
+          tabBarIcon: ({size, focused, color}) => {
+            return (
+              <TouchableOpacity>
+                <View>
+                  <HomeIcon />
+                </View>
+              </TouchableOpacity>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Categoris"
+        component={CategorisStackScreen}
+        options={{
+          title: 'Categoris',
+          tabBarIcon: ({size, focused, color}) => {
+            return (
+              <TouchableOpacity>
+                <View>
+                  <CategorisIcon />
+                </View>
+              </TouchableOpacity>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchStackScreen}
+        options={{
+          title: 'Search',
+          tabBarIcon: ({size, focused, color}) => {
+            return (
+              <TouchableOpacity style={{}}>
+                <SearchIcon onPress={() => alert('Clicked Search')} />
+              </TouchableOpacity>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="MyList"
+        component={MyListStackScreen}
+        options={{
+          title: 'MyList',
+          tabBarIcon: ({size, focused, color}) => {
+            return (
+              <TouchableOpacity>
+                <MyListIcon />
+              </TouchableOpacity>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={CartStackScreen}
+        options={{
+          title: 'Cart',
+          tabBarIcon: ({size, focused, color}) => {
+            return (
+              <TouchableOpacity>
+                <CartIcon />
+              </TouchableOpacity>
+            );
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }

@@ -3,10 +3,15 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+// import {
+//   DrawerContentScrollView,
+//   DrawerItemList,
+//   DrawerItem,
+// } from '@react-navigation/drawer';
 
 import LocationIcon from '../../assets/placeholder.svg';
 
-export function DrawerContent() {
+export function DrawerContent({navigation}) {
   return (
     <View style={styles.drawerContent}>
       <View style={styles.items}>
@@ -183,7 +188,7 @@ export function DrawerContent() {
             </TouchableOpacity>
           </View>
           <View style={{marginBottom: 20, paddingRight: 20}}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('MyList')}>
               <Text
                 style={{
                   fontSize: 12,
@@ -193,6 +198,7 @@ export function DrawerContent() {
                 My List
               </Text>
             </TouchableOpacity>
+
             <TouchableOpacity>
               <Text
                 style={{
