@@ -7,48 +7,60 @@ import {
   StatusBar,
   Image,
   StyleSheet,
-  FlatList,
+  ScrollView,
   SafeAreaView,
 } from 'react-native';
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    image: require('../../assets/images/banner-big.jpg'),
-  },
-];
+import Slider from '../Slider';
+import Category from '../Category';
 
-const Item = ({image}) => (
-  <View>
-    {/* <StatusBar backgroundColor="#44A72C" barStyle="light-content" /> */}
-    <View style={{justifyContent: 'center', alignItems: 'center'}}>
-      <Image style={styles.bigBanner} source={image} />
-    </View>
-
-    <View
-      style={{
-        justifyContent: 'center',
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '100%',
-        paddingTop: 10,
-      }}>
-      <Image style={styles.smallBanner} source={image} />
-      <Image style={styles.smallBanner2} source={image} />
-    </View>
-  </View>
-);
+// const DATA = [
+//   {
+//     id: '1',
+//     image: require('../../assets/images/banner-big.jpg'),
+//   },
+//   // {
+//   //   id: '2',
+//   //   image: require('../../assets/images/banner-small.png'),
+//   // },
+//   // {
+//   //   id: '3',
+//   //   image: require('../../assets/images/banner-small2.png'),
+//   // },
+// ];
 
 const Home = () => {
-  const renderItem = ({item}) => <Item image={item.image} />;
-
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <ScrollView>
+        <StatusBar backgroundColor="#44A72C" barStyle="light-content" />
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Image
+            style={styles.bigBanner}
+            source={require('../../assets/images/banner-big.jpg')}
+          />
+        </View>
+
+        <View
+          style={{
+            justifyContent: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
+            paddingTop: 10,
+          }}>
+          <Image
+            style={styles.smallBanner}
+            source={require('../../assets/images/banner-small.png')}
+          />
+          <Image
+            style={styles.smallBanner2}
+            source={require('../../assets/images/banner-small2.png')}
+          />
+        </View>
+        <Slider />
+        <Category />
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -59,7 +71,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   },
   bigBanner: {
     width: '100%',
@@ -72,7 +83,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
   },
   smallBanner2: {
-    width: 190,
+    width: 200,
     height: 113,
     resizeMode: 'stretch',
     marginLeft: 10,

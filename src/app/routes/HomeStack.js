@@ -173,26 +173,113 @@ function HomeStackScreen({navigation}) {
 const CategorisStack = createStackNavigator();
 
 function CategorisStackScreen({navigation}) {
+  const [value, onChangeText] = React.useState();
   return (
     <CategorisStack.Navigator>
       <CategorisStack.Screen
         name="Categoris"
         component={Categoris}
         options={{
-          headerLeft: () => (
-            <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
-          ),
-          headerRight: (props) => <ProfileIcon {...props} />,
+          // headerLeft: () => (
+          //   <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
+          // ),
+          // headerRight: (props) => <ProfileIcon {...props} />,
 
-          headerStyle: {
-            backgroundColor: '#44A72C',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          headerTitle: (props) => <LogoTitle {...props} />,
+          // headerStyle: {
+          //   backgroundColor: '#44A72C',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
+          // headerTitle: (props) => <LogoTitle {...props} />,
           // header: (props) => <HeaderBar {...props} />,
+          header: () => (
+            <View
+              style={{
+                backgroundColor: '#44A72C',
+              }}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                  // backgroundColor: 'red',
+                }}>
+                <View>
+                  <LogoTitle />
+                </View>
+                <View style={{left: 150}}>
+                  <ProfileIcon />
+                </View>
+              </View>
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                }}>
+                <Menu onPress={() => navigation.openDrawer()} />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingBottom: 10,
+                  }}>
+                  <TextInput
+                    onChangeText={(text) => onChangeText(text)}
+                    value={value}
+                    underlineColorAndroid="transparent"
+                    placeholder="Search Product"
+                    placeholderTextColor="#707070"
+                    autoCapitalize="none"
+                    style={{
+                      paddingTop: 10,
+                      paddingRight: 10,
+                      paddingBottom: 10,
+                      paddingLeft: 0,
+                      backgroundColor: '#fff',
+                      color: '#424242',
+                      height: 30,
+                      fontSize: 10,
+                      width: '75%',
+                    }}
+                  />
+                  <TouchableOpacity
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: 4,
+                      backgroundColor: '#f1f1f1',
+                      paddingRight: 10,
+                      paddingLeft: 10,
+                    }}>
+                    <SearchIcon />
+                  </TouchableOpacity>
+                </View>
+
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <CartHeaderIcon />
+                  <View style={{padding: 5}}>
+                    <Taka />
+                  </View>
+
+                  <Text style={{color: 'white'}}>0.00</Text>
+                </View>
+              </View>
+            </View>
+          ),
         }}
       />
     </CategorisStack.Navigator>
@@ -202,26 +289,113 @@ function CategorisStackScreen({navigation}) {
 const SearchStack = createStackNavigator();
 
 function SearchStackScreen({navigation}) {
+  const [value, onChangeText] = React.useState();
   return (
     <SearchStack.Navigator>
       <SearchStack.Screen
         name="Search"
         component={Search}
         options={{
-          headerLeft: () => (
-            <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
-          ),
-          headerRight: (props) => <ProfileIcon {...props} />,
+          // headerLeft: () => (
+          //   <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
+          // ),
+          // headerRight: (props) => <ProfileIcon {...props} />,
 
-          headerStyle: {
-            backgroundColor: '#44A72C',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          headerTitle: (props) => <LogoTitle {...props} />,
+          // headerStyle: {
+          //   backgroundColor: '#44A72C',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
+          // headerTitle: (props) => <LogoTitle {...props} />,
           // header: (props) => <HeaderBar {...props} />,
+          header: () => (
+            <View
+              style={{
+                backgroundColor: '#44A72C',
+              }}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                  // backgroundColor: 'red',
+                }}>
+                <View>
+                  <LogoTitle />
+                </View>
+                <View style={{left: 150}}>
+                  <ProfileIcon />
+                </View>
+              </View>
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                }}>
+                <Menu onPress={() => navigation.openDrawer()} />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingBottom: 10,
+                  }}>
+                  <TextInput
+                    onChangeText={(text) => onChangeText(text)}
+                    value={value}
+                    underlineColorAndroid="transparent"
+                    placeholder="Search Product"
+                    placeholderTextColor="#707070"
+                    autoCapitalize="none"
+                    style={{
+                      paddingTop: 10,
+                      paddingRight: 10,
+                      paddingBottom: 10,
+                      paddingLeft: 0,
+                      backgroundColor: '#fff',
+                      color: '#424242',
+                      height: 30,
+                      fontSize: 10,
+                      width: '75%',
+                    }}
+                  />
+                  <TouchableOpacity
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: 4,
+                      backgroundColor: '#f1f1f1',
+                      paddingRight: 10,
+                      paddingLeft: 10,
+                    }}>
+                    <SearchIcon />
+                  </TouchableOpacity>
+                </View>
+
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <CartHeaderIcon />
+                  <View style={{padding: 5}}>
+                    <Taka />
+                  </View>
+
+                  <Text style={{color: 'white'}}>0.00</Text>
+                </View>
+              </View>
+            </View>
+          ),
         }}
       />
     </SearchStack.Navigator>
@@ -231,26 +405,113 @@ function SearchStackScreen({navigation}) {
 const MyListStack = createStackNavigator();
 
 function MyListStackScreen({navigation}) {
+  const [value, onChangeText] = React.useState();
   return (
     <MyListStack.Navigator>
       <MyListStack.Screen
         name="MyList"
         component={MyList}
         options={{
-          headerLeft: () => (
-            <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
-          ),
-          headerRight: (props) => <ProfileIcon {...props} />,
+          // headerLeft: () => (
+          //   <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
+          // ),
+          // headerRight: (props) => <ProfileIcon {...props} />,
 
-          headerStyle: {
-            backgroundColor: '#44A72C',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          headerTitle: (props) => <LogoTitle {...props} />,
+          // headerStyle: {
+          //   backgroundColor: '#44A72C',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
+          // headerTitle: (props) => <LogoTitle {...props} />,
           // header: (props) => <HeaderBar {...props} />,
+          header: () => (
+            <View
+              style={{
+                backgroundColor: '#44A72C',
+              }}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                  // backgroundColor: 'red',
+                }}>
+                <View>
+                  <LogoTitle />
+                </View>
+                <View style={{left: 150}}>
+                  <ProfileIcon />
+                </View>
+              </View>
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                }}>
+                <Menu onPress={() => navigation.openDrawer()} />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingBottom: 10,
+                  }}>
+                  <TextInput
+                    onChangeText={(text) => onChangeText(text)}
+                    value={value}
+                    underlineColorAndroid="transparent"
+                    placeholder="Search Product"
+                    placeholderTextColor="#707070"
+                    autoCapitalize="none"
+                    style={{
+                      paddingTop: 10,
+                      paddingRight: 10,
+                      paddingBottom: 10,
+                      paddingLeft: 0,
+                      backgroundColor: '#fff',
+                      color: '#424242',
+                      height: 30,
+                      fontSize: 10,
+                      width: '75%',
+                    }}
+                  />
+                  <TouchableOpacity
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: 4,
+                      backgroundColor: '#f1f1f1',
+                      paddingRight: 10,
+                      paddingLeft: 10,
+                    }}>
+                    <SearchIcon />
+                  </TouchableOpacity>
+                </View>
+
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <CartHeaderIcon />
+                  <View style={{padding: 5}}>
+                    <Taka />
+                  </View>
+
+                  <Text style={{color: 'white'}}>0.00</Text>
+                </View>
+              </View>
+            </View>
+          ),
         }}
       />
     </MyListStack.Navigator>
@@ -260,26 +521,113 @@ function MyListStackScreen({navigation}) {
 const CartStack = createStackNavigator();
 
 function CartStackScreen({navigation}) {
+  const [value, onChangeText] = React.useState();
   return (
     <CartStack.Navigator>
       <CartStack.Screen
         name="Cart"
         component={Cart}
         options={{
-          headerLeft: () => (
-            <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
-          ),
-          headerRight: (props) => <ProfileIcon {...props} />,
+          // headerLeft: () => (
+          //   <Menu left={20} top={10} onPress={() => navigation.openDrawer()} />
+          // ),
+          // headerRight: (props) => <ProfileIcon {...props} />,
 
-          headerStyle: {
-            backgroundColor: '#44A72C',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          headerTitle: (props) => <LogoTitle {...props} />,
+          // headerStyle: {
+          //   backgroundColor: '#44A72C',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
+          // headerTitle: (props) => <LogoTitle {...props} />,
           // header: (props) => <HeaderBar {...props} />,
+          header: () => (
+            <View
+              style={{
+                backgroundColor: '#44A72C',
+              }}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                  // backgroundColor: 'red',
+                }}>
+                <View>
+                  <LogoTitle />
+                </View>
+                <View style={{left: 150}}>
+                  <ProfileIcon />
+                </View>
+              </View>
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginLeft: 20,
+                  marginRight: 20,
+                }}>
+                <Menu onPress={() => navigation.openDrawer()} />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingBottom: 10,
+                  }}>
+                  <TextInput
+                    onChangeText={(text) => onChangeText(text)}
+                    value={value}
+                    underlineColorAndroid="transparent"
+                    placeholder="Search Product"
+                    placeholderTextColor="#707070"
+                    autoCapitalize="none"
+                    style={{
+                      paddingTop: 10,
+                      paddingRight: 10,
+                      paddingBottom: 10,
+                      paddingLeft: 0,
+                      backgroundColor: '#fff',
+                      color: '#424242',
+                      height: 30,
+                      fontSize: 10,
+                      width: '75%',
+                    }}
+                  />
+                  <TouchableOpacity
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: 4,
+                      backgroundColor: '#f1f1f1',
+                      paddingRight: 10,
+                      paddingLeft: 10,
+                    }}>
+                    <SearchIcon />
+                  </TouchableOpacity>
+                </View>
+
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <CartHeaderIcon />
+                  <View style={{padding: 5}}>
+                    <Taka />
+                  </View>
+
+                  <Text style={{color: 'white'}}>0.00</Text>
+                </View>
+              </View>
+            </View>
+          ),
         }}
       />
     </CartStack.Navigator>
